@@ -58,12 +58,30 @@ public class DataBase extends SQLiteOpenHelper {
         cursor.moveToFirst();
         int nr=1;
         do{
-            boolean check =false;
-            if(cursor.getInt(2)>1)
-                check=true;
-            string+=nr+". "+cursor.getString(1)+" "+check +"\n";
+            string+=nr+". "+cursor.getString(1) +"\n";
             nr++;
         } while(cursor.moveToNext());
         return string;
     }
+
+    public void resetDatabase() {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARTICLES);
+        db.close();
+
+        db = this.getWritableDatabase();
+        onCreate(db);
+
+    }
+
+    public boolean isDatabaseEmpty() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_ARTICLES, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+        return count == 0;
+    }
+
 }
