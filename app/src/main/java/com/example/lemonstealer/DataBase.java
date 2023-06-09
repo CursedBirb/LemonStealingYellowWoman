@@ -58,7 +58,7 @@ public class DataBase extends SQLiteOpenHelper {
         cursor.moveToFirst();
         int nr=1;
         do{
-            string+=nr+". "+cursor.getString(1) +"\n";
+            string+=nr+". "+cursor.getString(1)+" lemons" +"\n";
             nr++;
         } while(cursor.moveToNext());
         return string;

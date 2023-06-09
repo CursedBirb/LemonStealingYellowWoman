@@ -38,7 +38,7 @@ public class ResultBase extends AppCompatActivity {
             String lemons = db.getAllRecords(1);
 
             System.out.println("Lemons that should have been in database: " + lemons);
-            showLemons.setText(lemons + " lemons");
+            showLemons.setText(lemons);
 
         }
 
