@@ -13,7 +13,6 @@ import org.json.JSONObject;
 public class ResultBase extends AppCompatActivity {
 
     // TODO: Dodać bazę danych pobierającą z json'a
-    int retrievedLemons = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +25,12 @@ public class ResultBase extends AppCompatActivity {
         json=prefMaxButton.getString("KEY_ID_VALUE2", "FALSE");
         String finalJson = json;
 
-        retrievedLemons = 0;
-
-        try {
-
-            JSONObject jsonPointsCollector = new JSONObject(finalJson);
-            retrievedLemons = jsonPointsCollector.getInt("collection");
-
-        } catch (JSONException e) {
-
-            e.printStackTrace();
-
-        }
-
         DataBase db = new DataBase(this);
 
-        LemonsBase mleko = new LemonsBase("Lemons: " + retrievedLemons, true);
-        db.addLemons(mleko, 1);
+        String lemons = db.getAllRecords(1);
+        TextView showLemons = (TextView)findViewById(R.id.showLemonsView);
 
-        String towary = db.getAllRecords(1);
-        TextView textViewTowar = (TextView)findViewById(R.id.textViewTowar);
-
-        textViewTowar.setText(towary);
+        showLemons.setText(lemons);
 
     }
 

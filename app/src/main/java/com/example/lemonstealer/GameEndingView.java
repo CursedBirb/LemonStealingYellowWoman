@@ -22,9 +22,4 @@ public class GameEndingView extends View {
 
     }
 
-    public void setOnTouchListener(GameEnding gameEnding) {
-
-
-
-    }
 }
