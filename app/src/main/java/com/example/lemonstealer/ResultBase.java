@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class ResultBase extends AppCompatActivity {
 
+    // TODO: Inne tło
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
