@@ -13,7 +13,6 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String TABLE_ARTICLES = "cellected_lemons";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
-    private static final String KEY_CHECK = "checkk";
     private static final String KEY_NR_LIST = "nr_list";
 
     public DataBase(Context context) {
@@ -25,7 +24,6 @@ public class DataBase extends SQLiteOpenHelper {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + DataBase.TABLE_ARTICLES + "("+
                 DataBase.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 DataBase.KEY_NAME + " TEXT,"+
-                DataBase.KEY_CHECK+ " INTEGER," +
                 DataBase.KEY_NR_LIST+" INTEGER"+ ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -40,9 +38,7 @@ public class DataBase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, lemon.getLemons());
-        values.put(KEY_CHECK, lemon.isCheck());
         values.put(KEY_NR_LIST, nrListy);
-        //db.insert(TABLE_ARTICLES, null, values);
         db.insertOrThrow(TABLE_ARTICLES, null, values);
         db.close();
     }

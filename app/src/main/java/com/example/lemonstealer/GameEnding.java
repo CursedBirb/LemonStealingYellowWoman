@@ -64,7 +64,7 @@ public class GameEnding extends AppCompatActivity {
 
         DataBase db = new DataBase(this);
 
-        LemonsBase lemon = new LemonsBase("Lemons: " + retrievedLemons, true);
+        LemonsBase lemon = new LemonsBase(String.valueOf(retrievedLemons));
         db.addLemons(lemon, 1);
 
         swearView.setText("Serves you right. You should have not stole our lemons. You stupid *****.");
