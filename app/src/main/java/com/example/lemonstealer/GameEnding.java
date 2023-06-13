@@ -67,7 +67,7 @@ public class GameEnding extends AppCompatActivity {
         LemonsBase lemon = new LemonsBase(String.valueOf(retrievedLemons));
         db.addLemons(lemon, 1);
 
-        swearView.setText("Serves you right. You should have not stole our lemons. You stupid *****.");
+        swearView.setText("Serves you right. You should have not stole our lemons. You stupid ...");
         lemonView.setText("You collected " + retrievedLemons + " lemons.");
 
         backToMenuButton.setOnClickListener(new View.OnClickListener() {
